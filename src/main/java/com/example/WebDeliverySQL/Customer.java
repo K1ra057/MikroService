@@ -1,5 +1,6 @@
 package com.example.WebDeliverySQL;
 
+import com.example.WebDeliverySQL.validation.ValidEmail;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,6 +21,8 @@ public class Customer {
     private Long id;
 
     private String name;
+    @ValidEmail // Валидация email
+
     private String email;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
