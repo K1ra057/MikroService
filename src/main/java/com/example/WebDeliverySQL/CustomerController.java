@@ -1,4 +1,6 @@
 package com.example.WebDeliverySQL;
+
+import com.example.WebDeliverySQL.dto.CustomerDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -12,7 +14,6 @@ import java.util.List;
 */
 @RestController
 @RequestMapping("/customers")
-
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -23,13 +24,13 @@ public class CustomerController {
 
     // Получить всех покупателей
     @GetMapping
-    public List<Customer> getAllCustomers() {
+    public List<CustomerDTO> getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
     // Получить покупателя по ID
     @GetMapping("/{id}")
-    public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
+    public ResponseEntity<CustomerDTO> getCustomerById(@PathVariable Long id) {
         return customerService.getCustomerById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -37,16 +38,16 @@ public class CustomerController {
 
     // Создать нового покупателя
     @PostMapping
-    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
-        Customer savedCustomer = customerService.createCustomer(customer);
+    public ResponseEntity<CustomerDTO> createCustomer(@RequestBody CustomerDTO customerDTO) {
+        CustomerDTO savedCustomer = customerService.createCustomer(customerDTO);
         return ResponseEntity.ok(savedCustomer);
     }
 
     // Обновить данные покупателя
     @PutMapping("/{id}")
-    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
+    public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
         try {
-            return ResponseEntity.ok(customerService.updateCustomer(id, customer));
+            return ResponseEntity.ok(customerService.updateCustomer(id, customerDTO));
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
