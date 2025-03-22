@@ -4,6 +4,8 @@ import com.example.WebDeliverySQL.validation.ValidEmail;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,4 +19,6 @@ public class CustomerDTO {
 
     @ValidEmail  // Використовуємо кастомну валідацію
     private String email;
+
+    private List<Long> orderIds;
 }
