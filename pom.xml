@@ -26,13 +26,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<!-- Spring Data JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
 		<!-- MySQL Driver (✅ Виправлено mysql-connector-j → mysql-connector-java) -->
 		<dependency>
 			<groupId>com.mysql</groupId>
@@ -40,14 +38,12 @@
 			<version>8.2.0</version>  <!-- Додано версію -->
 			<scope>runtime</scope>
 		</dependency>
-
 		<!-- Jakarta Validation API (✅ Додано для роботи @NotBlank, @Valid, @ConstraintValidator) -->
 		<dependency>
 			<groupId>jakarta.validation</groupId>
 			<artifactId>jakarta.validation-api</artifactId>
 			<version>3.0.2</version>
 		</dependency>
-
 		<!-- Hibernate Validator (✅ Основна бібліотека для валідації) -->
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
@@ -72,16 +68,30 @@
 			<version>1.5.5.Final</version>
 			<scope>provided</scope>
 		</dependency>
-
-
-
 		<!-- Spring Boot Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- JSON-обробник для MockMvc -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+
+
+
+
 	</dependencies>
+
+
 
 	<build>
 		<plugins>
