@@ -32,10 +32,10 @@ Content-Type: application/json
 ### GET All Orders
 GET http://localhost:8080/orders
 
-### GET Order by ID (например, с ID = 1)
+### GET Order by ID (, с ID = 1)
 GET http://localhost:8080/orders/1
 
-### DELETE Order by ID (например, с ID = 3)
+### DELETE Order by ID (, с ID = 3)
 DELETE http://localhost:8080/orders/3
 
 ### Create new Order
@@ -48,7 +48,7 @@ Content-Type: application/json
   "customerId": 1
 }
 
-### Update Order (например, с ID = 1)
+### Update Order (, с ID = 1)
 PUT http://localhost:8080/orders/1
 Content-Type: application/json
 
