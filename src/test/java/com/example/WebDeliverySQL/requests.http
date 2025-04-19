@@ -1,0 +1,60 @@
+### GET All Customers
+GET http://localhost:8080/customers
+
+### GET Customer by ID (, с ID = 1)
+GET http://localhost:8080/customers/1
+
+### DELETE Customer by ID (, с ID = 3)
+DELETE http://localhost:8080/customers/3
+
+### Create new Customer
+POST http://localhost:8080/customers
+Content-Type: application/json
+
+{
+  "name": "Test Customer",
+  "email": "testcustomer@example.com",
+  "orderIds": []
+}
+
+### Update Customer (, с ID = 1)
+PUT http://localhost:8080/customers/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Updated Customer",
+  "email": "updatedcustomer@example.com",
+  "orderIds": []
+}
+
+
+### GET All Orders
+GET http://localhost:8080/orders
+
+### GET Order by ID (например, с ID = 1)
+GET http://localhost:8080/orders/1
+
+### DELETE Order by ID (например, с ID = 3)
+DELETE http://localhost:8080/orders/3
+
+### Create new Order
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+  "deliveryAddress": "123 Test Street",
+  "status": "Pending",
+  "customerId": 1
+}
+
+### Update Order (например, с ID = 1)
+PUT http://localhost:8080/orders/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "deliveryAddress": "456 Updated Street",
+  "status": "Delivered",
+  "customerId": 1
+}
