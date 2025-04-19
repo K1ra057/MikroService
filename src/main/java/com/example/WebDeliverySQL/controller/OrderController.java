@@ -1,5 +1,6 @@
-package com.example.WebDeliverySQL;
+package com.example.WebDeliverySQL.controller;
 
+import com.example.WebDeliverySQL.service.OrderService;
 import com.example.WebDeliverySQL.dto.OrderDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

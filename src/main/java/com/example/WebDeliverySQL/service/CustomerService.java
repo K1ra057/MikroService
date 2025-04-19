@@ -1,7 +1,9 @@
-package com.example.WebDeliverySQL;
+package com.example.WebDeliverySQL.service;
 
 import com.example.WebDeliverySQL.dto.CustomerDTO;
 import com.example.WebDeliverySQL.mapper.CustomerMapper;
+import com.example.WebDeliverySQL.model.Customer;
+import com.example.WebDeliverySQL.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

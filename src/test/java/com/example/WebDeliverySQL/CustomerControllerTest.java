@@ -8,8 +8,9 @@ package com.example.WebDeliverySQL;
 @sinc 03.04.2025 - 21 - 25
 
 */
+import com.example.WebDeliverySQL.controller.CustomerController;
 import com.example.WebDeliverySQL.dto.CustomerDTO;
-import com.example.WebDeliverySQL.CustomerService;
+import com.example.WebDeliverySQL.service.CustomerService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;

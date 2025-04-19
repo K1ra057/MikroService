@@ -7,11 +7,11 @@ package com.example.WebDeliverySQL;
 @version 1.0.0
 @sinc 03.04.2025 - 21 - 39
 */
+import com.example.WebDeliverySQL.controller.OrderController;
 import com.example.WebDeliverySQL.dto.OrderDTO;
-import com.example.WebDeliverySQL.OrderService;
+import com.example.WebDeliverySQL.service.OrderService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;

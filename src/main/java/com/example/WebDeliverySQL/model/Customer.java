@@ -1,7 +1,6 @@
-package com.example.WebDeliverySQL;
+package com.example.WebDeliverySQL.model;
 
 import com.example.WebDeliverySQL.validation.ValidEmail;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 

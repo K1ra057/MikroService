@@ -1,6 +1,6 @@
 package com.example.WebDeliverySQL.mapper;
 
-import com.example.WebDeliverySQL.Order;
+import com.example.WebDeliverySQL.model.Order;
 import com.example.WebDeliverySQL.dto.OrderDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

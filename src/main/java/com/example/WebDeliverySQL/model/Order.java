@@ -1,6 +1,5 @@
-package com.example.WebDeliverySQL;
+package com.example.WebDeliverySQL.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
