@@ -32,22 +32,39 @@ public class OrderService {
     }
 
     public OrderDTO createOrder(OrderDTO orderDTO) {
-        Order order = orderMapper.toEntity(orderDTO);  // ✅ Перетворюємо DTO в Entity
+
+        if (orderDTO.getDeliveryAddress() == null || orderDTO.getDeliveryAddress().trim().isEmpty()) {
+            throw new IllegalArgumentException("Delivery address cannot be empty");
+        }
+
+
+        if (!List.of("Pending", "Shipped", "Delivered").contains(orderDTO.getStatus())) {
+            throw new IllegalArgumentException("Invalid status");
+        }
+
+        Order order = orderMapper.toEntity(orderDTO);
         Order savedOrder = orderRepository.save(order);
         return orderMapper.toDTO(savedOrder);
     }
 
     public OrderDTO updateOrder(Long id, OrderDTO updatedOrderDTO) {
+        // Добавляем валидацию статуса
+        List<String> allowedStatuses = List.of("Pending", "Shipped", "Delivered");
+        if (!allowedStatuses.contains(updatedOrderDTO.getStatus())) {
+            throw new IllegalArgumentException("Invalid status");
+        }
+
         return orderRepository.findById(id)
                 .map(order -> {
                     order.setDeliveryAddress(updatedOrderDTO.getDeliveryAddress());
                     order.setStatus(updatedOrderDTO.getStatus());
                     order.getCustomer().setId(updatedOrderDTO.getCustomerId());
                     Order updated = orderRepository.save(order);
-                    return orderMapper.toDTO(updated);  // ✅ Повертаємо DTO
+                    return orderMapper.toDTO(updated);
                 })
                 .orElseThrow(() -> new RuntimeException("Order not found"));
     }
+
 
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);

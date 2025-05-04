@@ -36,11 +36,24 @@ public class CustomerService {
                 .map(customerMapper::toDTO);  // Преобразуем сущность в DTO
     }
 
-    // Создать нового клиента из DTO
     public CustomerDTO createCustomer(CustomerDTO customerDTO) {
-        Customer customer = customerMapper.toEntity(customerDTO);  // Преобразуем DTO в сущность
-        Customer savedCustomer = customerRepository.save(customer);  // Сохраняем сущность
-        return customerMapper.toDTO(savedCustomer);  // Возвращаем DTO
+        // Валидация имени
+        if (customerDTO.getName() == null || customerDTO.getName().trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty");
+        }
+
+        // Существующая валидация email
+        if (!isValidEmail(customerDTO.getEmail())) {
+            throw new IllegalArgumentException("Invalid email format");
+        }
+
+        Customer customer = customerMapper.toEntity(customerDTO);
+        Customer savedCustomer = customerRepository.save(customer);
+        return customerMapper.toDTO(savedCustomer);
+    }
+
+    private boolean isValidEmail(String email) {
+        return email != null && email.matches("^[A-Za-z0-9+_.-]+@(.+)$");
     }
 
     // Обновить клиента по ID с преобразованием DTO в сущность
